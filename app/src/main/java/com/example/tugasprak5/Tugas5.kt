@@ -147,4 +147,37 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                     },
                     onValueChange = { }
                 )
+                Box(modifier = Modifier.weight(1f)) {
+                    OutlinedTextField(
+                        value = textExp,
+                        singleLine = true,
+                        readOnly = true,
+                        modifier = Modifier.fillMaxWidth(),
+                        label = { Text(text = stringResource(id = R.string.experience)) },
+                        trailingIcon = {
+                            IconButton(onClick = { bukaDropdown = true }) {
+                                Icon(
+                                    painter = painterResource(id = R.drawable.ic_dropdown),
+                                    contentDescription = stringResource(id = R.string.cd_buka_dropdown)
+                                )
+                            }
+                        },
+                        onValueChange = { }
+                    )
+                    DropdownMenu(
+                        expanded = bukaDropdown,
+                        onDismissRequest = { bukaDropdown = false }
+                    ) {
+                        listExp.forEach { item ->
+                            DropdownMenuItem(
+                                text = { Text(text = item) },
+                                onClick = {
+                                    textExp = item
+                                    bukaDropdown = false
+                                }
+                            )
+                        }
+                    }
+                }
+            }
 }
