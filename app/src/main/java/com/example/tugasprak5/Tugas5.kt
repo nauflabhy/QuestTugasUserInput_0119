@@ -1,4 +1,4 @@
-package com.example.tugasprak5
+package com.example.tugaspertemuan5
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -45,6 +45,7 @@ import java.util.Locale
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FormBiodata(modifier: Modifier = Modifier) {
+    //Variable-variable untuk mengingatkan nilai masukkan dari keyboard
     var textNamaDepan by remember { mutableStateOf(value = "") }
     var textNamaBelakang by remember { mutableStateOf(value = "") }
     var textEmail by remember { mutableStateOf(value = "") }
@@ -54,6 +55,7 @@ fun FormBiodata(modifier: Modifier = Modifier) {
     var cekUiux by remember { mutableStateOf(value = false) }
     var cekWeb by remember { mutableStateOf(value = false) }
 
+    //Variable-variable untuk menyimpan data yang diperoleh dari komponen UI
     var nama by remember { mutableStateOf(value = "") }
     var email by remember { mutableStateOf(value = "") }
     var tgl by remember { mutableStateOf(value = "") }
@@ -61,6 +63,7 @@ fun FormBiodata(modifier: Modifier = Modifier) {
     var skill by remember { mutableStateOf(value = "") }
     var tampil by remember { mutableStateOf(value = false) }
 
+    //Variable-variable untuk kalender dan dropdown
     var bukaKalender by remember { mutableStateOf(value = false) }
     var bukaDropdown by remember { mutableStateOf(value = false) }
     val kalenderState = rememberDatePickerState()
@@ -77,6 +80,7 @@ fun FormBiodata(modifier: Modifier = Modifier) {
     val teksWeb = stringResource(id = R.string.skill_web)
     val durasi = integerResource(id = R.integer.durasi_hasil).toLong()
 
+    //Card hasil disembunyikan lagi setelah 5 detik
     LaunchedEffect(key1 = tampil) {
         if (tampil) {
             delay(timeMillis = durasi)
@@ -84,6 +88,7 @@ fun FormBiodata(modifier: Modifier = Modifier) {
         }
     }
 
+    //Box putih yang mengapung di atas gambar dan Scaffold
     Box(
         modifier = modifier
             .fillMaxWidth()
@@ -147,6 +152,7 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                     },
                     onValueChange = { }
                 )
+                //Experience: tidak bisa diketik, dipilih lewat dropdown
                 Box(modifier = Modifier.weight(1f)) {
                     OutlinedTextField(
                         value = textExp,
@@ -248,5 +254,4 @@ fun FormBiodata(modifier: Modifier = Modifier) {
             DatePicker(state = kalenderState)
         }
     }
-}
 }
