@@ -53,4 +53,8 @@ fun FormBiodata(modifier: Modifier = Modifier) {
     var cekAndroid by remember { mutableStateOf(value = false) }
     var cekUiux by remember { mutableStateOf(value = false) }
     var cekWeb by remember { mutableStateOf(value = false) }
+
+    var nama by remember { mutableStateOf(value = "") }
+    var email by remember { mutableStateOf(value = "") }
+    var tgl by remember { mutableStateOf(value = "") }
 }
