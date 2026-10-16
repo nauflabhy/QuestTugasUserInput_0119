@@ -106,5 +106,13 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                 text = stringResource(id = R.string.subjudul_form),
                 color = colorResource(id = R.color.abu)
             )
+            Row(horizontalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_small))) {
+                OutlinedTextField(
+                    value = textNamaDepan,
+                    singleLine = true,
+                    modifier = Modifier.weight(1f),
+                    label = { Text(text = stringResource(id = R.string.nama_depan)) },
+                    onValueChange = { textNamaDepan = it }
+                )
 
 }
