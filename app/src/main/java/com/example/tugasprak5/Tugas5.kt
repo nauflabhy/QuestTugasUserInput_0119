@@ -65,4 +65,10 @@ fun FormBiodata(modifier: Modifier = Modifier) {
     var bukaDropdown by remember { mutableStateOf(value = false) }
     val kalenderState = rememberDatePickerState()
     val formatTanggal = stringResource(id = R.string.format_tanggal)
+    val listExp: List<String> = listOf(
+        stringResource(id = R.string.exp_pertama),
+        stringResource(id = R.string.exp_kedua),
+        stringResource(id = R.string.exp_ketiga),
+        stringResource(id = R.string.exp_keempat)
+    )
 }
