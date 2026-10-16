@@ -49,4 +49,8 @@ fun FormBiodata(modifier: Modifier = Modifier) {
     var textNamaBelakang by remember { mutableStateOf(value = "") }
     var textEmail by remember { mutableStateOf(value = "") }
     var textTgl by remember { mutableStateOf(value = "") }
+    var textExp by remember { mutableStateOf(value = "") }
+    var cekAndroid by remember { mutableStateOf(value = false) }
+    var cekUiux by remember { mutableStateOf(value = false) }
+    var cekWeb by remember { mutableStateOf(value = false) }
 }
