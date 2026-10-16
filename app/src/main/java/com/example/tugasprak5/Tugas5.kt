@@ -1,4 +1,4 @@
-package com.example.tugaspertemuan5
+package com.example.tugasprak5
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
