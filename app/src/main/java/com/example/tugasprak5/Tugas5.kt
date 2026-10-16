@@ -57,4 +57,7 @@ fun FormBiodata(modifier: Modifier = Modifier) {
     var nama by remember { mutableStateOf(value = "") }
     var email by remember { mutableStateOf(value = "") }
     var tgl by remember { mutableStateOf(value = "") }
+    var exp by remember { mutableStateOf(value = "") }
+    var skill by remember { mutableStateOf(value = "") }
+    var tampil by remember { mutableStateOf(value = false) }
 }
