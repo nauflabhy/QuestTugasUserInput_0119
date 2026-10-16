@@ -180,4 +180,73 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                     }
                 }
             }
+            Text(text = stringResource(id = R.string.pilih_skill))
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Checkbox(checked = cekAndroid, onCheckedChange = { cekAndroid = it })
+                Text(teksAndroid)
+                Checkbox(checked = cekUiux, onCheckedChange = { cekUiux = it })
+                Text(teksUiux)
+                Checkbox(checked = cekWeb, onCheckedChange = { cekWeb = it })
+                Text(teksWeb)
+            }
+            Button(
+                modifier = Modifier.fillMaxWidth(fraction = 1f),
+                // tombol aktif jika nama depan, nama belakang, dan email sudah diisi
+                enabled = textNamaDepan.isNotEmpty() && textNamaBelakang.isNotEmpty() && textEmail.isNotEmpty(),
+                onClick = {
+                    nama = textNamaDepan + " " + textNamaBelakang
+                    email = textEmail
+                    tgl = textTgl
+                    exp = textExp
+                    skill = ""
+                    if (cekAndroid) skill = skill + teksAndroid + " "
+                    if (cekUiux) skill = skill + teksUiux + " "
+                    if (cekWeb) skill = skill + teksWeb
+                    tampil = true
+                }
+            ) {
+                Text(stringResource(R.string.proceed))
+            }
+            if (tampil) {
+                ElevatedCard(
+                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.hitam)),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Column(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_small))) {
+                        val putih = colorResource(id = R.color.putih)
+                        Text(text = stringResource(R.string.hasil_nama) + nama, color = putih)
+                        Text(text = stringResource(R.string.hasil_email) + email, color = putih)
+                        Text(text = stringResource(R.string.hasil_tgl) + tgl, color = putih)
+                        Text(text = stringResource(R.string.hasil_exp) + exp, color = putih)
+                        Text(text = stringResource(R.string.hasil_skill) + skill, color = putih)
+                    }
+                }
+            }
+        }
+    }
+
+    //Dialog kalender untuk memilih tanggal lahir
+    if (bukaKalender) {
+        DatePickerDialog(
+            onDismissRequest = { bukaKalender = false },
+            confirmButton = {
+                TextButton(onClick = {
+                    kalenderState.selectedDateMillis?.let {
+                        textTgl = SimpleDateFormat(formatTanggal, Locale.getDefault()).format(Date(it))
+                    }
+                    bukaKalender = false
+                }) {
+                    Text(text = stringResource(id = R.string.ok))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { bukaKalender = false }) {
+                    Text(text = stringResource(id = R.string.batal))
+                }
+            }
+        ) {
+            DatePicker(state = kalenderState)
+        }
+    }
+}
 }
