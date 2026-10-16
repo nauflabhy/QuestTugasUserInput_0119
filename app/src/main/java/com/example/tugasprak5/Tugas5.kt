@@ -91,6 +91,11 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                 color = colorResource(id = R.color.putih),
                 shape = RoundedCornerShape(dimensionResource(id = R.dimen.radius_box))
             )
-    )
+    ) {
+        Column(
+            modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_small)),
+            verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_small)),
+            horizontalAlignment = Alignment.CenterHorizontally
+        )
 
 }
