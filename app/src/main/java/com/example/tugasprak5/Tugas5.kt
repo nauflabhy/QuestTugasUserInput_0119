@@ -44,4 +44,9 @@ import java.util.Locale
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FormBiodata(modifier: Modifier = Modifier)
+fun FormBiodata(modifier: Modifier = Modifier) {
+    var textNamaDepan by remember { mutableStateOf(value = "") }
+    var textNamaBelakang by remember { mutableStateOf(value = "") }
+    var textEmail by remember { mutableStateOf(value = "") }
+    var textTgl by remember { mutableStateOf(value = "") }
+}
