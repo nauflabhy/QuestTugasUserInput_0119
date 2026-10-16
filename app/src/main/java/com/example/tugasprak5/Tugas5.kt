@@ -76,4 +76,12 @@ fun FormBiodata(modifier: Modifier = Modifier) {
     val teksUiux = stringResource(id = R.string.skill_uiux)
     val teksWeb = stringResource(id = R.string.skill_web)
     val durasi = integerResource(id = R.integer.durasi_hasil).toLong()
+
+    LaunchedEffect(key1 = tampil) {
+        if (tampil) {
+            delay(timeMillis = durasi)
+            tampil = false
+        }
+    }
+
 }
