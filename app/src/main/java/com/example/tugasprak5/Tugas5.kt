@@ -96,6 +96,15 @@ fun FormBiodata(modifier: Modifier = Modifier) {
             modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_small)),
             verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_small)),
             horizontalAlignment = Alignment.CenterHorizontally
-        )
+        ) {
+            Text(
+                text = stringResource(id = R.string.judul_form),
+                style = MaterialTheme.typography.headlineMedium,
+                color = colorResource(id = R.color.biru_judul)
+            )
+            Text(
+                text = stringResource(id = R.string.subjudul_form),
+                color = colorResource(id = R.color.abu)
+            )
 
 }
