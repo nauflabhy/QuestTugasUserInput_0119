@@ -84,4 +84,13 @@ fun FormBiodata(modifier: Modifier = Modifier) {
         }
     }
 
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .background(
+                color = colorResource(id = R.color.putih),
+                shape = RoundedCornerShape(dimensionResource(id = R.dimen.radius_box))
+            )
+    )
+
 }
